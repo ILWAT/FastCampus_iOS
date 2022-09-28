@@ -13,6 +13,7 @@
 		DEE2040B28DF3E7200E54A0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE2040928DF3E7200E54A0D /* Main.storyboard */; };
 		DEE2040D28DF3E7400E54A0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE2040C28DF3E7400E54A0D /* Assets.xcassets */; };
 		DEE2041028DF3E7400E54A0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE2040E28DF3E7400E54A0D /* LaunchScreen.storyboard */; };
+		DEE2041828E331A500E54A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2041728E331A400E54A0D /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DEE2040C28DF3E7400E54A0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEE2040F28DF3E7400E54A0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEE2041128DF3E7400E54A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEE2041728E331A400E54A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				DEE2040328DF3E7200E54A0D /* AppDelegate.swift */,
 				DEE2040528DF3E7200E54A0D /* SceneDelegate.swift */,
 				DEE2040728DF3E7200E54A0D /* ViewController.swift */,
+				DEE2041728E331A400E54A0D /* SettingViewController.swift */,
 				DEE2040928DF3E7200E54A0D /* Main.storyboard */,
 				DEE2040C28DF3E7400E54A0D /* Assets.xcassets */,
 				DEE2040E28DF3E7400E54A0D /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				DEE2040828DF3E7200E54A0D /* ViewController.swift in Sources */,
 				DEE2040428DF3E7200E54A0D /* AppDelegate.swift in Sources */,
 				DEE2040628DF3E7200E54A0D /* SceneDelegate.swift in Sources */,
+				DEE2041828E331A500E54A0D /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
