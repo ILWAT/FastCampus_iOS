@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LEDBoardSettingDelegate: AnyObject {
+    func changedSetting(text: String?, textColor: UIColor, backgroundColor: UIColor)
+}
+
 class SettingViewController: UIViewController {
     @IBOutlet weak var TextField: UITextField!
     @IBOutlet weak var purpleButton: UIButton!
@@ -16,30 +20,56 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var blackButton: UIButton!
     
+    weak var delegate: LEDBoardSettingDelegate?
+    var ledText: String?
+    var textColor: UIColor = .yellow
+    var backgroundColor: UIColor = .black
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.configureView()
+    }
+    
+    private func configureView(){
+        if let ledText = self.ledText {
+            self.TextField.text = ledText
+        }
+        self.changeTextColor(color: self.textColor)
+        self.changeBackgroundColorButton(color: self.backgroundColor)
     }
     
     @IBAction func tapTextColorButton(_ sender: UIButton) {
         if sender == self.yellowButton{
             self.changeTextColor(color: .yellow)
+            self.textColor = .yellow
         } else if sender == self.greenButton{
             self.changeTextColor(color: .green)
+            self.textColor = .green
         } else if sender == self.purpleButton {
             self.changeTextColor(color: .purple)
+            self.textColor = .purple
         }
     }
     @IBAction func tapBackgroundColorButton(_ sender: UIButton) {
         if sender == self.blackButton{
             self.changeBackgroundColorButton(color: .black)
+            self.backgroundColor = .black
         } else if sender == self.blueButton{
             self.changeBackgroundColorButton(color: .blue)
+            self.backgroundColor = .blue
         } else if sender == self.orangeButton {
             self.changeBackgroundColorButton(color: .orange)
+            self.backgroundColor = .orange
         }
     }
     @IBAction func tapSaveButton(_ sender: UIButton) {
+        self.delegate?.changedSetting(
+            text: self.TextField.text,
+            textColor: self.textColor,
+            backgroundColor: self.backgroundColor
+        )
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func changeTextColor(color: UIColor){
