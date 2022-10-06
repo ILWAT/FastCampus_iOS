@@ -7,7 +7,24 @@
 
 import UIKit
 
+enum Operation {
+    case Add
+    case subtract
+    case Divide
+    case Multiply
+    case unknown
+}
+
 class ViewController: UIViewController {
+    var displayNumber = ""
+    var firstOperand = "" //첫번째 피연산자
+    var secondeOperand = "" //두번째 피연산자
+    var reslut = "" //결과값
+    var currentOperation: Operation = .unknown //현재 연산
+
+    
+    @IBOutlet weak var numberOutputLabel: UILabel!
+    //임의로 코드화 해버리기
     @IBOutlet weak var buttonAC: UIButton!
     @IBOutlet weak var button9: UIButton!
     @IBOutlet weak var button8: UIButton!
@@ -33,6 +50,7 @@ class ViewController: UIViewController {
     }
     
     func buttonRound() {
+        //버튼별 모서리 둥글게 설정
         buttonAC.layer.cornerRadius = buttonAC.frame.height / 2
         button9.layer.cornerRadius = button9.frame.height / 2
         button8.layer.cornerRadius = button8.frame.height / 2
@@ -53,6 +71,45 @@ class ViewController: UIViewController {
         
     }
 
-
+    @IBAction func tapNumberButton(_ sender: UIButton) {
+        guard let numberValue = sender.title(for: .normal) else { return }
+        if self.displayNumber.count < 9 {
+            self.displayNumber+=numberValue
+            self.numberOutputLabel.text = self.displayNumber
+        }
+    }
+    
+    @IBAction func tapClearButton(_ sender: UIButton) {
+        self.displayNumber = ""
+        self.firstOperand = ""
+        self.secondeOperand = ""
+        self.reslut = ""
+        self.currentOperation = .unknown
+        self.numberOutputLabel.text = "0"
+    }
+    
+    @IBAction func tapDotButton(_ sender: UIButton) {
+        if self.displayNumber.count < 8, self.displayNumber.contains(".") {
+            self.displayNumber += self.displayNumber.isEmpty ? "0." : "."
+            self.numberOutputLabel.text  = self.displayNumber
+        }
+    }
+    
+    @IBAction func tapDivideButton(_ sender: UIButton) {
+    }
+    @IBAction func tapMultiplyButton(_ sender: UIButton) {
+    }
+    @IBAction func tapSubtractButton(_ sender: UIButton) {
+    }
+    @IBAction func tapAddButton(_ sender: UIButton) {
+    }
+    @IBAction func tapEqualButton(_ sender: UIButton) {
+    }
+    
+    
+    
+    
+    
+    
 }
 
