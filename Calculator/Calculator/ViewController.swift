@@ -96,17 +96,30 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tapDivideButton(_ sender: UIButton) {
+        self.operation(.Divide)
     }
     @IBAction func tapMultiplyButton(_ sender: UIButton) {
+        self.operation(.Multiply)
     }
     @IBAction func tapSubtractButton(_ sender: UIButton) {
+        self.operation(.subtract)
     }
     @IBAction func tapAddButton(_ sender: UIButton) {
+        self.operation(.Add)
     }
     @IBAction func tapEqualButton(_ sender: UIButton) {
+        self.operation(self.currentOperation)
     }
     
-    
+    func operation (_ operation: Operation ) {
+        if self.currentOperation != .unknown {
+            
+        } else {
+            self.firstOperand = self.displayNumber
+            self.currentOperation = operation
+            self.displayNumber = ""
+        }
+    }
     
     
     
