@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var displayNumber = ""
     var firstOperand = "" //첫번째 피연산자
     var secondeOperand = "" //두번째 피연산자
-    var reslut = "" //결과값
+    var result = "" //결과값
     var currentOperation: Operation = .unknown //현재 연산
 
     
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         self.displayNumber = ""
         self.firstOperand = ""
         self.secondeOperand = ""
-        self.reslut = ""
+        self.result = ""
         self.currentOperation = .unknown
         self.numberOutputLabel.text = "0"
     }
@@ -113,6 +113,33 @@ class ViewController: UIViewController {
     
     func operation (_ operation: Operation ) {
         if self.currentOperation != .unknown {
+            if self.displayNumber.isEmpty{
+                self.secondeOperand = self.displayNumber
+                self.displayNumber = ""
+                
+                guard let firstOperand = Double(self.displayNumber) else {return}
+                guard let secondOperand = Double(self.secondeOperand) else {return}
+                
+                switch self.currentOperation {
+                case .Add:
+                    self.result = "\(firstOperand + secondOperand)"
+                case .subtract:
+                    self.result = "\(firstOperand - secondOperand)"
+                case .Divide:
+                    self.result = "\(firstOperand / secondOperand)"
+                case .Multiply:
+                    self.result = "\(firstOperand * secondOperand)"
+                default:
+                    break
+                }
+                
+                if let result = Double(self.result), result.truncatingRemainder(dividingBy: 1) == 0 {
+                    slef.result = "\((Int)result)"
+                }
+                self.firstOperand = self.result
+                self.numberOutputLabel.text = self.result
+                
+            }
             
         } else {
             self.firstOperand = self.displayNumber
