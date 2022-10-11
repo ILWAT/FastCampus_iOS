@@ -134,7 +134,7 @@ class ViewController: UIViewController {
                 }
                 
                 if let result = Double(self.result), result.truncatingRemainder(dividingBy: 1) == 0 {
-                    slef.result = "\((Int)result)"
+                    self.result = "\((Int)result)"
                 }
                 self.firstOperand = self.result
                 self.numberOutputLabel.text = self.result
